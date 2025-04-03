@@ -1,0 +1,12 @@
+#reload {
+    font-size: 2em;
+    padding: 5px 12px;
+    margin: 5px;
+    border-radius: 10px;
+    border: none;
+    background: #ffebf1;
+    box-shadow:  6px 6px 12px #bebebe,
+             -6px -6px 12px #ffffff;
+    color: #ec739f;
+    cursor: pointer;
+}
