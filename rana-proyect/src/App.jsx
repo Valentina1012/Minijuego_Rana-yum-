@@ -9,7 +9,6 @@ import frogEating2 from './img/froggy-proyectv2-eating.png'
 import frogEating3 from './img/froggy-proyectv2-eating2.png'
 import frogHappy from './img/froggy-proyect-happy.png'
 import frogVeryHappy from './img/frog-veryHappy.png'
-import marco from './img/yellow-frame.png'
 import './styles/presentacion.css'
 
 
@@ -25,19 +24,20 @@ function App() {
 
     let timer =  setInterval(function() {
       let timePassed = Date.now() - start;
-      if (timePassed >= 3600) {
+      if (timePassed > 4000) {
         clearInterval(timer)
         imgRana.setAttribute("src", froggySerious)
+        numImg = 0
         return
       }
 
+      imgRana.setAttribute("src", ranaImgs[numImg])
+      
       if(numImg < 4) {
         numImg++
-      } else {
-        numImg = 0
       }
       
-      imgRana.setAttribute("src", ranaImgs[numImg])
+      console.log(numImg)
     }, 900)
   }
 
@@ -69,7 +69,7 @@ function App() {
         <FrogCharacter />
         <FoodSection handleEated={(e) => handleFrogEat(e)} />
         <p className='hunger-level'><span>Nivel de hambre: {frogHunger}</span></p>
-        <div className='frame'><img src={marco} alt="Marco amarillo para el borde del juego" /></div>
+        <div className='frame'><img src="https://i.postimg.cc/7PdQTqsy/yellow-frame.png" alt="Marco amarillo para el borde del juego" /></div>
       </div> 
       <div className='btn-section'><RefreshButton /></div>
       
