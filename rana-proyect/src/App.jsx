@@ -12,49 +12,58 @@ import frogVeryHappy from './img/frog-veryHappy.png'
 import './styles/presentacion.css'
 
 
-
 function App() {
   const [frogHunger, changeFrogHunger] = useState(4)
   let ranaImgs = [frogEating1, frogEating2, frogEating3, frogHappy]
   let numImg = 0
+  let animating = false
 
   const animationFrogEating = () => {
     let imgRana = document.getElementById("img-rana")
     let start = Date.now();
 
-    let timer =  setInterval(function() {
-      let timePassed = Date.now() - start;
-      if (timePassed > 4000) {
-        clearInterval(timer)
-        imgRana.setAttribute("src", froggySerious)
-        numImg = 0
-        return
-      }
-
-      imgRana.setAttribute("src", ranaImgs[numImg])
-      
-      if(numImg < 4) {
-        numImg++
-      }
-      
-      console.log(numImg)
-    }, 900)
+      let timer =  setInterval(function() {
+        let timePassed = Date.now() - start;
+        if (timePassed > 4000) {
+          clearInterval(timer)
+          imgRana.setAttribute("src", froggySerious)
+          numImg = 0
+          animating=false
+          return
+        }
+        animating = true
+        imgRana.setAttribute("src", ranaImgs[numImg])
+            
+        if(numImg < 4) {
+          numImg++
+        }
+            
+      }, 900)
   }
 
   const handleFrogEat = (e) => {
-    let imgRana = document.getElementById("img-rana")
-    e.target.closest('.food-card').remove()
-    animationFrogEating()
-    let timeoutID = window.setTimeout(() => {
-      if (frogHunger > 1) {
-        changeFrogHunger(levelOfHunger => levelOfHunger-1)
-      } else if (frogHunger == 1) {
-        changeFrogHunger(levelOfHunger => levelOfHunger-1)
-        window.clearTimeout(timeoutID);
-        document.getElementById('empty-text').style.display = 'block'
-        imgRana.setAttribute("src", frogVeryHappy)
-      }
-    }, '5000')
+    if(animating) {
+      document.getElementById('no-eating').style.display = 'block'
+      let timeoutID1 = window.setTimeout(()=> {
+        document.getElementById('no-eating').style.display = 'none'
+        window.clearTimeout(timeoutID1)
+      }, '2500')
+      return  
+    } else {
+      let imgRana = document.getElementById("img-rana")
+      e.target.closest('.food-card').remove()
+      animationFrogEating()
+      let timeoutID2 = window.setTimeout(() => {
+        if (frogHunger > 1) {
+          changeFrogHunger(levelOfHunger => levelOfHunger-1)
+        } else if (frogHunger == 1) {
+          changeFrogHunger(levelOfHunger => levelOfHunger-1)          
+          document.getElementById('empty-text').style.display = 'block'
+          imgRana.setAttribute("src", frogVeryHappy)
+          window.clearTimeout(timeoutID2);
+        }
+      }, '5000')
+    }
   }
 
   return (

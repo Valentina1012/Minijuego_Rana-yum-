@@ -1,7 +1,10 @@
 .rana-section {
-    margin-top: 20px;
+    width: 50%;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
+    position: relative;
+    gap: 10px;
 }   
 
 .rana-text {
@@ -12,4 +15,21 @@
     border: 3px solid #634e4e ;
     border-radius: 20px;
     padding: 8px;
+}
+
+#no-eating {
+    position: absolute;
+    width: 250px;
+    font-size: 1.3em;
+    left: 65%;
+    top: 50%;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    text-wrap: stable;
+    display: none;
+}
+
+#no-eating span {
+    font-size: 1em;
 }
