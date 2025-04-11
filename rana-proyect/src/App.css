@@ -47,3 +47,21 @@
     display: flex;
     justify-content: start;
 }
+
+.winStyle, .loseStyle {
+    margin-top: 10px;
+    font-size: 1.8em;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.winStyle {
+    background: #50d1ee;
+}
+
+.loseStyle {
+    background: #ee5050;
+}

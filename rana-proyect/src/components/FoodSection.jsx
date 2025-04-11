@@ -13,14 +13,15 @@ export function FoodSection({ handleEated }) {
   }, [])
 
     return <div>
-              <ul className="food-section">
-                {foods.length == 0 && <p>Cargando...</p>}
+              {foods.length == 0 && <p>Cargando...</p>}
+              <ul id='foods-list' className="food-section">
+                
                 {
                   foods.map((food) => {
-                    return <FoodCard key={food.id} id={food.id} imgName={food.imgName} imgFood= {food.imgFood} type={food.type} handleEated={handleEated} />
+                    return <FoodCard key={food.id} id={food.id} imgName={food.imgName} imgFood= {food.imgFood} type={food.type} isYummy={food.isYummy} handleEated={handleEated} />
                   })
                 }
-              </ul>              
+              </ul>    
             <h2 id="empty-text">No hay mas comida</h2>
           </div>
 }
