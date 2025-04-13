@@ -116,7 +116,6 @@ function App() {
         <FoodSection handleEated={(e) => handleFrogEat(e)} />
         <div className="winStyle" id="endGame"></div>
         <p className='hunger-level'><span>Nivel de hambre: {frogHunger}</span></p>
-        <div className='frame'><img src="https://i.postimg.cc/7PdQTqsy/yellow-frame.png" alt="Marco amarillo para el borde del juego" /></div>
        
       <div className='btn-section'><RefreshButton /></div>
       </div>

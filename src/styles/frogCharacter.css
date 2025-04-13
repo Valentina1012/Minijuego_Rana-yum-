@@ -7,6 +7,10 @@
     gap: 10px;
 }   
 
+.rana-section img {
+    width: 500px;
+}
+
 .rana-text {
     font-size: 1.3em;
     position: absolute;
@@ -32,4 +36,14 @@
 
 #no-eating span {
     font-size: 1em;
+}
+
+@media screen and (max-width: 825px) {
+    .rana-section {
+        width: 100%;
+    }    
+
+    .rana-section img {
+        width: 90%;
+    }
 }

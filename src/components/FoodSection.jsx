@@ -2,6 +2,7 @@ import "../styles/foodSection.css"
 import { FoodCard } from './FoodCard.jsx'
 import { get } from '../services/get.js'
 import { useEffect, useState } from "react"
+import loading from '../img/loading.gif'
 
 export function FoodSection({ handleEated }) {
   const [foods, setFoods] = useState([])
@@ -13,7 +14,8 @@ export function FoodSection({ handleEated }) {
   }, [])
 
     return <div>
-              {foods.length == 0 && <p>Cargando...</p>}
+              {foods.length == 0 && <div className="food-loading"><p>Cargando comidas</p><img src={loading} alt="gif rueda de carga"/></div>}
+
               <ul id='foods-list' className="food-section">
                 
                 {
