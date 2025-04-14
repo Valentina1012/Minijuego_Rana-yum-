@@ -108,8 +108,8 @@ function App() {
       <div className='app-container'>
         <div className='presentacion'>
           <h3 className='indicacion'>Dale de comer a la rana</h3>
-          <h1 className='principal title'>RANA</h1>
-          <h2 className='secondary title'>Yum!</h2>
+          <div className='title'><h1 className='principal title'>RANA</h1>
+          <h2 className='secondary title'>Yum!</h2></div>
         </div>
         
         <FrogCharacter />

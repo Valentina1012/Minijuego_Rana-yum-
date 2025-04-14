@@ -7,7 +7,7 @@
 
 body {
     background: #ffefef;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 .app-container {
@@ -26,14 +26,14 @@ body {
     display: flex;
     justify-content: end;
     width: 70%;
-    font-size: 1.3em;
+    font-size: 1.2em;
+    margin-bottom: 16px;
 }
-
 
 .hunger-level span {
     background: #ffffff;
     padding: 2px 6px;
-    border-radius: 5px;
+    border-radius: 6px;
     border: 1px solid #000;
 }
 
@@ -68,7 +68,7 @@ body {
     align-items: center;
 }
 .food-loading p {
-    font-size: 1.3em;
+    font-size: 1.2em;
 }   
 
 .food-loading img {
