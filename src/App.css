@@ -27,7 +27,7 @@ body {
     justify-content: end;
     width: 70%;
     font-size: 1.2em;
-    margin-bottom: 16px;
+    margin: 16px 0;
 }
 
 .hunger-level span {
@@ -44,22 +44,16 @@ body {
     justify-content: start;
 }
 
-.winStyle, .loseStyle {
+#endGame {
     margin-top: 10px;
     font-size: 1.8em;
     color: #000;
     display: flex;
     justify-content: center;
-    width: 20%;
+    width: fit-content;
     margin: 0 auto;
-}
-
-.winStyle {
-    background: #50d1ee;
-}
-
-.loseStyle {
-    background: #ee5050;
+    padding: 2px 8px;
+    border-radius: 4px;
 }
 
 .food-loading {

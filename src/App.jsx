@@ -32,11 +32,11 @@ function App() {
       let timeoutID3 = window.setTimeout(()=> {
         if(frogHunger == 0) {
           divEndGame.textContent = '¡Ganaste! 😄✨'
+          divEndGame.style.backgroundColor = '#50d1ee'
           imgRana.setAttribute("src", frogVeryHappy)
-        } else {
-          divEndGame.classList.remove('winStyle')
-          divEndGame.classList.add('loseStyle')
+        } else{
           divEndGame.textContent = 'Perdiste el juego 😥'
+          divEndGame.style.backgroundColor = '#ee5050'
         } 
         window.clearTimeout(timeoutID3)
       }, '2000')
@@ -76,15 +76,13 @@ function App() {
   }
 
 
-
-
   const handleFrogEat = (e) => {
     if(animating) {
       document.getElementById('no-eating').style.display = 'block'
       let timeoutID1 = window.setTimeout(()=> {
         document.getElementById('no-eating').style.display = 'none'
         window.clearTimeout(timeoutID1)
-      }, '2500')
+      }, '2200')
       return  
     } else {
       const foodCard = e.target.closest('.food-card')
@@ -114,7 +112,7 @@ function App() {
         
         <FrogCharacter />
         <FoodSection handleEated={(e) => handleFrogEat(e)} />
-        <div className="winStyle" id="endGame"></div>
+        <div id="endGame"></div>
         <p className='hunger-level'><span>Nivel de hambre: {frogHunger}</span></p>
        
       <div className='btn-section'><RefreshButton /></div>
