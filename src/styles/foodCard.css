@@ -9,22 +9,20 @@
 
 .food-title {
     font-size: 1.3em;
+    font-weight: lighter;
 }
 
 .img-food {
     border-radius: 39px;
     background: #fff;
-    box-shadow:  14px 14px 25px #6b6b6b,
-             -14px -14px 28px #ffffff;
     margin: 7px;
-    filter: grayscale();
     cursor: pointer;
     border: 2px solid #e876ca;
     width: 150px;
 }
 
 .img-food:hover {
-    filter:none;
+    filter: drop-shadow(0 20px 1.5rem #ff6060);
 }
 
 .food-type {

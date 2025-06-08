@@ -3,12 +3,7 @@ import './App.css'
 import { FoodSection } from './components/FoodSection.jsx'
 import { FrogCharacter } from './components/FrogCharacter.jsx'
 import { RefreshButton } from './components/RefreshButton.jsx'
-import frogEating1 from './img/froggy-proyectv2-eating0.png'
-import frogEating2 from './img/froggy-proyectv2-eating.png'
-import frogEating3 from './img/froggy-proyectv2-eating2.png'
-import frogHappy from './img/froggy-proyect-happy.png'
-import frogDisgust from './img/froggy-disgust.png'
-import frogVeryHappy from './img/frog-veryHappy.png'
+import { frogEating1,  frogEating2, frogEating3, frogHappy, frogDisgust, frogVeryHappy } from './img/index'
 import './styles/presentacion.css'
 
 
@@ -17,10 +12,9 @@ function App() {
   const [finalEated, setFinalEated] = useState(false)
   let ranaImgs = [frogEating1, frogEating2, frogEating3]
   let numImg = 0
-  let animating = false
   const foodIsYummy = (food) => food.getAttribute('data-isyummy') == 'true'
   const foodsList = document.getElementsByClassName('food-section')
-  const handleHunger = (food) => foodIsYummy(food) ? changeFrogHunger(frogHunger => frogHunger-1): changeFrogHunger(frogHunger => frogHunger+1)
+  const handleHunger = (food) => foodIsYummy(food) ? changeFrogHunger(frogHunger-1) : changeFrogHunger(frogHunger+1)
 
 
 
@@ -39,7 +33,7 @@ function App() {
           divEndGame.style.backgroundColor = '#ee5050'
         } 
         window.clearTimeout(timeoutID3)
-      }, '2000')
+      }, '3000')
     }
     
   }, [frogHunger, finalEated])
@@ -63,10 +57,8 @@ function App() {
           clearInterval(timer)
           changeHumor(imgRana, food)
           numImg = 0
-          animating=false
           return
         }
-        animating = true
         imgRana.setAttribute("src", ranaImgs[numImg])
 
         if(numImg < 3) {
@@ -77,29 +69,17 @@ function App() {
 
 
   const handleFrogEat = (e) => {
-    if(animating) {
-      document.getElementById('no-eating').style.display = 'block'
-      let timeoutID1 = window.setTimeout(()=> {
-        document.getElementById('no-eating').style.display = 'none'
-        window.clearTimeout(timeoutID1)
-      }, '2200')
-      return  
-    } else {
       const foodCard = e.target.closest('.food-card')
       foodCard.remove()
+      handleHunger(foodCard)
       animationFrogEating(foodCard)
-      let timeoutID2 = window.setTimeout(() => {
-        if (foodsList[0].childNodes.length >= 1) {
-          handleHunger(foodCard)
-          window.clearTimeout(timeoutID2);
-        } else {
-          setFinalEated(true)
-          handleHunger(foodCard)
-          document.getElementById('empty-text').style.display = 'block'
-        }
-      }, '4000')
-    }
+
+      if(foodsList[0].childNodes.length < 1) {
+        setFinalEated(true)
+        document.getElementById('empty-text').style.display = 'block'
+      }
   }
+
   return (
     
     <>

@@ -36,17 +36,8 @@
 }
 
 @media screen and (max-width: 1300px) {
-    /* .secondary.title {
-        left: 55.5%;
-    } */
     .presentacion {
         padding: 50px 0 20px 0;
     }
 }
 
-@media screen and (max-width: 799px) {
-    /* .secondary.title {
-        top: 17.5%;
-        left: 57.5%;
-    } */
-}
