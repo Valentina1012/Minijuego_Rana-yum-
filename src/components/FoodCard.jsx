@@ -1,6 +1,6 @@
 import '../styles/foodCard.css'
 
-export function FoodCard({ imgName, imgFood, type, handleEated, id, isYummy}) {
+export default function FoodCard({ imgName, imgFood, type, handleEated, id, isYummy}) {
 
 
     return <div onClick={handleEated} className='food-card' id={id} data-isyummy={`${isYummy}`}>

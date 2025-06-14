@@ -1,5 +1,5 @@
 import '../styles/refreshButton.css'
-export function RefreshButton() {
+export default function RefreshButton() {
     const handleClick = () => {
         location.reload()
     }

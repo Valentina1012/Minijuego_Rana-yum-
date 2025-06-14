@@ -1,10 +1,10 @@
 import "../styles/foodSection.css"
-import { FoodCard } from './FoodCard.jsx'
+import {FoodCard}  from './index.js'
 import { get } from '../services/get.js'
 import { useEffect, useState } from "react"
 import { loading } from '../img/index'
 
-export function FoodSection({ handleEated }) {
+export default function FoodSection({ handleEated }) {
   const [foods, setFoods] = useState([])
 
   useEffect(() => {
@@ -13,10 +13,10 @@ export function FoodSection({ handleEated }) {
       setFoods(d)})
   }, [])
 
-    return <div className="food-container">
+    return <div className="food-container" id="foodList-container">
               {foods.length == 0 && <div className="food-loading"><p>Cargando comidas</p><img src={loading} alt="gif rueda de carga"/></div>} 
 
-                <ul id='foods-list' className="food-section">
+                <ul className="food-section">
                   
                   {
                     foods.map((food) => {
